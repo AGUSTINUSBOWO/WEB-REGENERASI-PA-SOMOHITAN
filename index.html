@@ -22,14 +22,32 @@
     }
 
     #page1 {
-      display: flex;
-      background: url('PA1.png') no-repeat center center fixed;
+      display: flex; /* Halaman pertama langsung terlihat */
+      background: url('PA1.png') no-repeat center center fixed; /* Gambar untuk Dashboard */
+      background-size: cover;
+      position: relative; /* Memastikan header-text diposisikan relatif terhadap container ini */
+    }
+
+    #page2 {
+      background: url('berhasil.png') no-repeat center center fixed; /* Gambar untuk Success Page */
       background-size: cover;
     }
 
-    #page2, #page3 {
-      background: url('PA1.1') no-repeat center center fixed;
+    #page3 {
+      background: url('gagal.png') no-repeat center center fixed; /* Gambar untuk Error Page */
       background-size: cover;
+    }
+
+    .header-text {
+      position: absolute;
+      top: 20px; /* Atur jarak dari atas sesuai kebutuhan */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.5rem; /* Ukuran font bisa disesuaikan */
+      color: white;
+      text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black;
+      -webkit-text-stroke: 1px black; /* Outline tebal untuk teks */
+      text-align: center;
     }
 
     h1, h2 {
@@ -103,11 +121,24 @@
         opacity: 1;
       }
     }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container" id="page1">
-    <h1>Regenerasi Pengurus PA Somohitan</h1>
+    <div class="header-text">
+      Regenerasi Pengurus PA Somohitan
+    </div>
     <div class="search-bar">
       <input type="text" id="nameInput" placeholder="NAMA LENGKAP(KAPITAL)">
       <button onclick="checkName()">Kirim</button>
