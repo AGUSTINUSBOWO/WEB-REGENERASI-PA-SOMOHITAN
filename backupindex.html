@@ -25,7 +25,7 @@
       display: flex; /* Halaman pertama langsung terlihat */
       background: url('PA1.png') no-repeat center center fixed; /* Gambar untuk Dashboard */
       background-size: cover;
-      position: relative; /* Memastikan header-text diposisikan relatif terhadap container ini */
+      position: relative;
     }
 
     #page2 {
@@ -40,27 +40,14 @@
 
     .header-text {
       position: absolute;
-      top: 10px;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 5vw; /* Font responsif berdasarkan lebar layar */
+      font-size: 2.5rem;
       color: white;
+      text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black;
+      -webkit-text-stroke: 1px black;
       text-align: center;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-      font-weight: bold;
-      animation: slideDown 1.2s ease-in-out; /* Animasi slide-down */
-    }
-
-    @media screen and (max-width: 768px) {
-      .header-text {
-        font-size: 7vw; /* Ukuran font lebih kecil di layar ponsel */
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      .header-text {
-        font-size: 8vw; /* Ukuran font lebih kecil lagi untuk perangkat yang lebih kecil */
-      }
     }
 
     h1, h2 {
@@ -92,7 +79,7 @@
     }
 
     .search-bar input:focus {
-      transform: scale(1.05); /* Efek perbesar */
+      transform: scale(1.05);
       box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.8);
     }
 
@@ -105,12 +92,12 @@
       color: white;
       cursor: pointer;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-      transition: background-color 0.3s ease, transform 0.3s ease; /* Efek hover */
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .search-bar button:hover {
       background-color: #0056b3;
-      transform: scale(1.1); /* Perbesar tombol saat hover */
+      transform: scale(1.1);
     }
 
     .result, .error-message {
@@ -134,22 +121,29 @@
       margin: 5px 0;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
+    /* Tombol Kembali */
+    .back-button {
+      padding: 15px 20px;
       font-size: 1rem;
       border: none;
-      border-radius: 20px;
-      background-color: #007BFF;
+      border-radius: 25px;
+      background-color: #FF5733;
       color: white;
       cursor: pointer;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 10px;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    button:hover {
-      background-color: #0056b3;
+    .back-button:hover {
+      background-color: #C13C1B;
       transform: scale(1.1);
+    }
+
+    .back-button i {
+      font-size: 1.2rem;
     }
 
     @keyframes fadeIn {
@@ -200,7 +194,9 @@
       <h2 id="resultTitle"></h2>
       <p id="resultMessage"></p>
     </div>
-    <button onclick="goBack()">Kembali</button>
+    <button class="back-button" onclick="goBack()">
+      <i>&#8592;</i> Kembali
+    </button>
   </div>
 
   <div class="container" id="page3">
@@ -208,7 +204,9 @@
       <h2>Maaf!</h2>
       <p>Nama kamu tidak terdaftar.</p>
     </div>
-    <button onclick="goBack()">Kembali</button>
+    <button class="back-button" onclick="goBack()">
+      <i>&#8592;</i> Kembali
+    </button>
   </div>
 
   <script>
@@ -231,8 +229,8 @@
       "KRISTO": "Pubdok",
       "VIAN": "Konsumsi",
       "NADA": "Konsumsi",
-      "PAUL": "Miba" ,
-      "DELA" : "Miba"
+      "PAUL": "Miba",
+      "DELA": "Miba"
     };
 
     function checkName() {
