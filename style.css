@@ -32,26 +32,17 @@ body {
   background-size: cover;
 }
 
-h1 {
-  font-size: 3rem; /* Ukuran font default */
-  margin-bottom: 20px;
+.header-text {
+  position: absolute;
+  top: 10%; /* Mengatur jarak dari atas */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5vw; /* Ukuran font lebih kecil dan responsif */
   color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  animation: slideDown 1s ease-in-out;
-}
-
-/* Menyesuaikan ukuran font pada layar kecil */
-@media screen and (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem; /* Ukuran font lebih kecil di layar mobile */
-  }
-}
-
-/* Menyesuaikan ukuran font pada layar sangat kecil */
-@media screen and (max-width: 480px) {
-  h1 {
-    font-size: 1.2rem; /* Ukuran font lebih kecil lagi pada perangkat yang lebih kecil */
-  }
+  text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black;
+  -webkit-text-stroke: 1px black;
+  text-align: center;
+  animation: slideDown 1s ease-in-out; /* Efek animasi muncul */
 }
 
 .search-bar {
@@ -165,5 +156,19 @@ button:hover {
   to {
       transform: translateY(0);
       opacity: 1;
+  }
+}
+
+/* Menyesuaikan ukuran font pada layar kecil */
+@media screen and (max-width: 768px) {
+  .header-text {
+    font-size: 6vw; /* Ukuran font lebih kecil di layar mobile */
+  }
+}
+
+/* Menyesuaikan ukuran font pada layar sangat kecil */
+@media screen and (max-width: 480px) {
+  .header-text {
+    font-size: 7vw; /* Ukuran font lebih kecil lagi pada perangkat yang lebih kecil */
   }
 }
